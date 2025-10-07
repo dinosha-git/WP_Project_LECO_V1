@@ -58,8 +58,8 @@ if submitted:
                 "operatedLbs": operatedLbs.strip() if operatedLbs else None,
                 "earthingPoints": earthingPoints.strip() if earthingPoints else None,
                 "additionalSafetySteps": additionalSafetySteps.strip() if additionalSafetySteps else None,
-                "wpTransfer": bool(wpTransfer),                               # bool
-                "additionalEarthing": int(additionalEarthing),                # number
+                "wpTransfer": bool(wpTransfer),                               
+                "additionalEarthing": int(additionalEarthing),                
                 "cssName": cssName.strip(),
             }
 
@@ -71,4 +71,3 @@ if submitted:
             st.error(f"❌ Error saving to database: {e}")
 
 st.markdown("---")
-#st.caption("Powered by Streamlit + Supabase (Postgres).")
