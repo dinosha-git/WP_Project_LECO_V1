@@ -4,8 +4,7 @@ import streamlit as st
 from supabase import create_client, Client
 from uuid import uuid4
 from datetime import datetime
-from streamlit_geolocation import st_geolocation
-
+#from streamlit_geolocation import st_geolocation
 
 import os, streamlit as st
 from dotenv import load_dotenv
@@ -26,12 +25,12 @@ def get_client() -> Client:
 supabase = get_client()
 
 
-st.subheader("📍 Location")
-loc = st_geolocation()  # prompts the browser for GPS permission
-if loc and "latitude" in loc and "longitude" in loc:
-    st.caption(f"Location captured: {loc['latitude']:.5f}, {loc['longitude']:.5f}")
-else:
-    st.warning("Click 'Allow' in the browser prompt to share your location.")
+#st.subheader("📍 Location")
+#loc = st_geolocation()  # prompts the browser for GPS permission
+#if loc and "latitude" in loc and "longitude" in loc:
+#    st.caption(f"Location captured: {loc['latitude']:.5f}, {loc['longitude']:.5f}")
+#else:
+#    st.warning("Click 'Allow' in the browser prompt to share your location.")
 
 BUCKET = "wp-photos"  # create this bucket in Supabase Storage (see step 3)
 
@@ -97,9 +96,9 @@ if submitted:
             earthing_urls  = upload_files(earthingPointsPhotos, "earthing_points")
 
             # Build location field (None if user didn't allow)
-            gpsLoc = None
-            if loc and "latitude" in loc and "longitude" in loc:
-                gpsLoc = {"lat": loc["latitude"], "lon": loc["longitude"], "acc": loc.get("accuracy")}
+#            gpsLoc = None
+#            if loc and "latitude" in loc and "longitude" in loc:
+#                gpsLoc = {"lat": loc["latitude"], "lon": loc["longitude"], "acc": loc.get("accuracy")}
 
 
             row = {
@@ -113,7 +112,7 @@ if submitted:
                 "additionalEarthing": int(additionalEarthing),                
                 "cssName": cssName.strip(),
                 
-                "gpsLoc": gpsLoc,  # if your column is camelCase; see SQL below
+#                "gpsLoc": gpsLoc,  # if your column is camelCase; see SQL below
                 "operatedLbsPhotos": operated_urls,         # JSONB column
                 "earthingPointsPhotos": earthing_urls,      # JSONB column
             }
