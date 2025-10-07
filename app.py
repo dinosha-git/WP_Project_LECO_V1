@@ -32,7 +32,7 @@ supabase = get_client()
 #else:
 #    st.warning("Click 'Allow' in the browser prompt to share your location.")
 
-BUCKET = "wp-photos"  # create this bucket in Supabase Storage (see step 3)
+BUCKET = "wp_bucket"  # create this bucket in Supabase Storage (see step 3)
 
 def upload_files(files, subfolder):
     """Upload a list of Streamlit UploadedFile objects and return public URLs."""
