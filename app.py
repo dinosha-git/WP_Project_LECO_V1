@@ -52,15 +52,15 @@ if submitted:
     else:
         try:
             row = {
-                "csc": csc.strip(),
-                "technical_officer": technicalOfficer.strip(),
-                "work_scope": workScope.strip(),
-                "operated_lbs": operatedLbs.strip() if operatedLbs else None,
-                "earthing_points": earthingPoints.strip() if earthingPoints else None,
-                "additional_safety_steps": additionalSafetySteps.strip() if additionalSafetySteps else None,
-                "wp_transfer": bool(wpTransfer),                               # bool
-                "additionalEarthing": int(additionalEarthing),                # number
-                "css_name": cssName.strip(),
+#                "csc": csc.strip(),
+#                "technical_officer": technicalOfficer.strip(),
+#                "work_scope": workScope.strip(),
+#                "operated_lbs": operatedLbs.strip() if operatedLbs else None,
+#                "earthing_points": earthingPoints.strip() if earthingPoints else None,
+#                "additional_safety_steps": additionalSafetySteps.strip() if additionalSafetySteps else None,
+#                "wp_transfer": bool(wpTransfer),                               # bool
+#                "additionalEarthing": int(additionalEarthing),                # number
+#                "css_name": cssName.strip(),
             }
 
             resp = supabase.table(TABLE_NAME).insert(row).execute()
