@@ -32,27 +32,40 @@ supabase = get_client()
 #else:
 #    st.warning("Click 'Allow' in the browser prompt to share your location.")
 
-BUCKET = "wp_bucket"  # create this bucket in Supabase Storage (see step 3)
+BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
-    """Upload a list of Streamlit UploadedFile objects and return public URLs."""
+    """Upload Streamlit UploadedFile(s) to Supabase Storage and return public URL strings."""
     urls = []
     if not files:
         return urls
+
     date_prefix = datetime.utcnow().strftime("%Y/%m/%d")
     for f in files:
         ext = os.path.splitext(f.name)[1].lower() or ".bin"
         key = f"{subfolder}/{date_prefix}/{uuid4().hex}{ext}"
-        data = f.read()  # bytes
+
+        data = f.read()
         f.seek(0)
+
+        # IMPORTANT: make header values strings, not booleans
         supabase.storage.from_(BUCKET).upload(
             path=key,
             file=data,
-            file_options={"contentType": f.type or "application/octet-stream", "upsert": True},
+            file_options={
+                "contentType": f.type or "application/octet-stream",
+                "upsert": "true"   # 👈 avoid bool→encode crash in headers
+            },
         )
-        public_url = supabase.storage.from_(BUCKET).get_public_url(key)
-        urls.append(public_url)
+
+        # Get a plain string URL (supabase-py returns a dict)
+        pub = supabase.storage.from_(BUCKET).get_public_url(key)
+        if isinstance(pub, dict) and "data" in pub and "publicUrl" in pub["data"]:
+            urls.append(pub["data"]["publicUrl"])
+        else:
+            urls.append(str(pub))
     return urls
+
 
 
 #st.set_page_config(page_title="Simple Form", page_icon="📝", layout="centered")
