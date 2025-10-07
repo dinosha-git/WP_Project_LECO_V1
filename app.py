@@ -59,7 +59,7 @@ if submitted:
                 "earthing_points": earthingPoints.strip() if earthingPoints else None,
                 "additional_safety_steps": additionalSafetySteps.strip() if additionalSafetySteps else None,
                 "wp_transfer": bool(wpTransfer),                               # bool
-                "additional_earthing": int(additionalEarthing),                # number
+                "additionalEarthing": int(additionalEarthing),                # number
                 "css_name": cssName.strip(),
             }
 
