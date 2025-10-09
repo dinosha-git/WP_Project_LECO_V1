@@ -22,8 +22,8 @@ def get_client() -> Client:
 
 supabase = get_client()
 
-BG_URL = "https://images.pexels.com/photos/18301274/pexels-photo-18301274.jpeg"
-
+#BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
+BG_URL = "https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png"
 #https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
 
 OPACITY = 0.96
@@ -166,6 +166,7 @@ if submitted:
         except Exception as e:
             st.error(f"❌ Error saving to database: {e}")
 
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("---")
