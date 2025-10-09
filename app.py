@@ -22,10 +22,7 @@ def get_client() -> Client:
 
 supabase = get_client()
 
-# === Background image via URL ===
 BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
-
-'''
 
 st.markdown(
     f"""
@@ -39,18 +36,18 @@ st.markdown(
         background: rgba(255,255,255,0.75);
         backdrop-filter: blur(4px);
     }}
-    /* Optional: center the page content and give it a glass card look */
-    .main-block {{
-        background: rgba(255,255,255,0.80);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+#    /* Optional: center the page content and give it a glass card look */
+#    .main-block {{
+#        background: rgba(255,255,255,0.80);
+#        border-radius: 16px;
+#        padding: 24px;
+#        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }}
     </style>
     """,
     unsafe_allow_html=True,
 )
-'''
+
 BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
