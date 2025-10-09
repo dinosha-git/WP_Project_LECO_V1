@@ -22,6 +22,33 @@ def get_client() -> Client:
 
 supabase = get_client()
 
+# === Background image via URL ===
+BG_URL = "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1920"  # <- replace with your image URL
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background: url('{BG_URL}') no-repeat center center fixed;
+        background-size: cover;
+    }}
+    /* Make the sidebar semi-transparent over the bg */
+    [data-testid="stSidebar"] > div:first-child {{
+        background: rgba(255,255,255,0.75);
+        backdrop-filter: blur(4px);
+    }}
+    /* Optional: center the page content and give it a glass card look */
+    .main-block {{
+        background: rgba(255,255,255,0.80);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
@@ -58,6 +85,8 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
+
+st.markdown('<div class="main-block">', unsafe_allow_html=True)
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
@@ -122,4 +151,6 @@ if submitted:
         except Exception as e:
             st.error(f"❌ Error saving to database: {e}")
 
+
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("---")
