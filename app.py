@@ -61,7 +61,7 @@ TABLE_NAME = "wp_tbl"
 st.title("📝 LECO Permit to Work")
 
 st.markdown("**01. Issuing Clearance**")
-st.markdown("---")
+#st.markdown("---")
 
 with st.form("wp_form", clear_on_submit=False):
     csc = st.text_input("Customer Service Center", placeholder="Negombo")
