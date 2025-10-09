@@ -26,7 +26,7 @@ BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
 
 #https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
 
-OPACITY = 0.88
+OPACITY = 2
 
 st.markdown(
     f"""
