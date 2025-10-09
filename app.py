@@ -26,7 +26,7 @@ BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
 
 #https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
 
-OPACITY = 100
+OPACITY = 0.96
 
 st.markdown(
     f"""
@@ -40,7 +40,7 @@ st.markdown(
     /* Sidebar glass effect (optional) */
     [data-testid="stSidebar"] > div:first-child {{
         background: rgba(255,255,255,{OPACITY});
-        backdrop-filter: blur(4px);
+        backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(4px);
     }}
 
