@@ -75,7 +75,6 @@ TABLE_NAME = "wp_tbl"
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
-#st.markdown("---")
 
 CSC_OPTIONS = ["Negombo", "Kelaniya", "Kotte", "Nugegoda", "Moratuwa", "Kaluthara", "Galle"]
 
@@ -95,7 +94,7 @@ with st.form("wp_form", clear_on_submit=False):
     wpTransfer = st.checkbox("Can transfer this Permit to Work to another authorized person ", value=False)
     additionalEarthing = st.number_input("Number of Additional Earthing", min_value=0, max_value=120, step=1)
     cssName = st.text_input("Name of the Initiator", placeholder="Mention the CSS Name")
-    safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel...", value=False)
+    safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel and release this Permit to Work with the awareness of the Distribution Control Center...", value=False)
     submitted = st.form_submit_button("Submit")
 
 
