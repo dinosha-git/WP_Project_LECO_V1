@@ -23,7 +23,9 @@ def get_client() -> Client:
 supabase = get_client()
 
 # === Background image via URL ===
-BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"  # <- replace with your image URL
+BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
+
+'''
 
 st.markdown(
     f"""
@@ -48,7 +50,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
+'''
 BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
