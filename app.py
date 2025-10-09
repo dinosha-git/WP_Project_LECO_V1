@@ -87,6 +87,7 @@ with st.form("wp_form", clear_on_submit=False):
     wpTransfer = st.checkbox("Can transfer this Permit to Work to another authorized person ", value=False)
     additionalEarthing = st.number_input("Number of Additional Earthing", min_value=0, max_value=120, step=1)
     cssName = st.text_input("Name of the Initiator", placeholder="Mention the CSS Name")
+    detailName = st.text_input("Details fo CSS", placeholder="Mention the Details")
     submitted = st.form_submit_button("Submit")
 
 
@@ -124,6 +125,7 @@ if submitted:
                 "wpTransfer": bool(wpTransfer),                               
                 "additionalEarthing": int(additionalEarthing),                
                 "cssName": cssName.strip(),
+                "detailName": detailName.strip(),
                 
 #                "gpsLoc": gpsLoc,  # if your column is camelCase; see SQL below
                 "operatedLbsPhotos": operated_urls,         # JSONB column
