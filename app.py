@@ -31,10 +31,10 @@ st.markdown(
     }}
     /* Optional: center the page content and give it a glass card look */
     .main-block {{
-        background: rgba(255,255,255,0.80);
+        background: rgba(255,255,255,1);
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        box-shadow: 0 10px 30px rgba(0,0,0,1);
     }}
     </style>
     """,
@@ -83,7 +83,7 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-st.markdown('<div class="main-block">', unsafe_allow_html=True)
+
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
@@ -110,7 +110,6 @@ with st.form("wp_form", clear_on_submit=False):
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel...", value=False)
     submitted = st.form_submit_button("Submit")
 
-st.markdown('</div>', unsafe_allow_html=True)
 
 if submitted:
     # Mandatory fields
