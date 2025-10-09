@@ -60,6 +60,9 @@ TABLE_NAME = "wp_tbl"
 
 st.title("📝 LECO Permit to Work")
 
+st.markdown("**01. Issuing Clearance**")
+st.markdown("---")
+
 with st.form("wp_form", clear_on_submit=False):
     csc = st.text_input("Customer Service Center", placeholder="Negombo")
     technicalOfficer = st.text_input("Technical Officer", placeholder="TO Name")
@@ -107,7 +110,7 @@ if submitted:
                 "operatedLbsPhotos": operated_urls,         
                 "earthingPointsPhotos": earthing_urls,     
             }
-            
+
             resp = supabase.table(TABLE_NAME).insert(row).execute()
             st.success("✅ Submitted successfully!")
             if resp.data:
