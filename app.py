@@ -10,11 +10,12 @@ import os, streamlit as st
 from dotenv import load_dotenv
 load_dotenv()
 
-#SUPABASE_URL = os.getenv("SUPABASE_URL") or st.secrets.get("SUPABASE_URL")
-#SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets.get("SUPABASE_ANON_KEY")
+SUPABASE_URL = os.getenv("SUPABASE_URL") or st.secrets["SUPABASE_URL"]
+SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets["SUPABASE_ANON_KEY"]
 
-SUPABASE_URL = os.getenv("SUPABASE_URL", "https://trcxukrdgbvtkikeetun.supabase.co")
-SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyY3h1a3JkZ2J2dGtpa2VldHVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MTk1NzksImV4cCI6MjA3NTM5NTU3OX0.KaS5aOHnyiOL2C1-Gy23ZsyQ1U5oqb8r4oQ5T4jie3k")
+
+#SUPABASE_URL = os.getenv("SUPABASE_URL", "https://trcxukrdgbvtkikeetun.supabase.co")
+#SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyY3h1a3JkZ2J2dGtpa2VldHVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MTk1NzksImV4cCI6MjA3NTM5NTU3OX0.KaS5aOHnyiOL2C1-Gy23ZsyQ1U5oqb8r4oQ5T4jie3k")
 
 st.set_page_config(page_title="LECO Permit to Work", page_icon="📝", layout="centered")
 
@@ -127,7 +128,7 @@ if submitted:
                 "cssName": cssName.strip(),
                 "detailName": detailName.strip(),
                 
-#                "gpsLoc": gpsLoc,  # if your column is camelCase; see SQL below
+#               "gpsLoc": gpsLoc,  
                 "operatedLbsPhotos": operated_urls,         # JSONB column
                 "earthingPointsPhotos": earthing_urls,      # JSONB column
             }
