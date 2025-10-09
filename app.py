@@ -33,7 +33,7 @@ st.markdown(
     .main-block {{
         background: rgba(255,255,255,1);
         border-radius: 16px;
-        padding: 24px;
+        padding: 50px;
         box-shadow: 0 50px 80px rgba(0,0,0,1);
     }}
     </style>
