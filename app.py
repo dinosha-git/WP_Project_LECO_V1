@@ -38,9 +38,8 @@ st.markdown(
 
     /* Main content glass card */
     .glass-card {{
-        background: rgba(255,255,255,{OPACITY});
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: #1f2937;
+        color: #f3f4f6;  
         border-radius: 16px;
         padding: 24px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.18);
