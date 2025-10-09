@@ -14,9 +14,6 @@ SUPABASE_URL = os.getenv("SUPABASE_URL") or st.secrets["SUPABASE_URL"]
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets["SUPABASE_ANON_KEY"]
 
 
-#SUPABASE_URL = os.getenv("SUPABASE_URL", "https://trcxukrdgbvtkikeetun.supabase.co")
-#SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyY3h1a3JkZ2J2dGtpa2VldHVuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4MTk1NzksImV4cCI6MjA3NTM5NTU3OX0.KaS5aOHnyiOL2C1-Gy23ZsyQ1U5oqb8r4oQ5T4jie3k")
-
 st.set_page_config(page_title="LECO Permit to Work", page_icon="📝", layout="centered")
 
 @st.cache_resource
@@ -24,14 +21,6 @@ def get_client() -> Client:
     return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 supabase = get_client()
-
-
-#st.subheader("📍 Location")
-#loc = st_geolocation()  # prompts the browser for GPS permission
-#if loc and "latitude" in loc and "longitude" in loc:
-#    st.caption(f"Location captured: {loc['latitude']:.5f}, {loc['longitude']:.5f}")
-#else:
-#    st.warning("Click 'Allow' in the browser prompt to share your location.")
 
 BUCKET = "wp_bucket"
 
@@ -69,7 +58,6 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-#st.set_page_config(page_title="Simple Form", page_icon="📝", layout="centered")
 st.title("📝 LECO Permit to Work")
 
 with st.form("wp_form", clear_on_submit=False):
@@ -91,10 +79,8 @@ with st.form("wp_form", clear_on_submit=False):
     submitted = st.form_submit_button("Submit")
 
 
-  
-
 if submitted:
-    # minimal required fields
+    # Mandatory fields
     missing = []
     if not csc.strip():               missing.append("Customer Service Center")
     if not technicalOfficer.strip():  missing.append("Technical Officer")
@@ -105,15 +91,8 @@ if submitted:
         st.error("Please fill: " + ", ".join(missing))
     else:
         try:
-            # Upload photos first
             operated_urls = upload_files(operatedLbsPhotos, "operated_lbs")
             earthing_urls  = upload_files(earthingPointsPhotos, "earthing_points")
-
-            # Build location field (None if user didn't allow)
-#            gpsLoc = None
-#            if loc and "latitude" in loc and "longitude" in loc:
-#                gpsLoc = {"lat": loc["latitude"], "lon": loc["longitude"], "acc": loc.get("accuracy")}
-
 
             row = {
                 "csc": csc.strip(),
@@ -124,13 +103,11 @@ if submitted:
                 "additionalSafetySteps": additionalSafetySteps.strip() if additionalSafetySteps else None,
                 "wpTransfer": bool(wpTransfer),                               
                 "additionalEarthing": int(additionalEarthing),                
-                "cssName": cssName.strip(),
-                
-#               "gpsLoc": gpsLoc,  
-                "operatedLbsPhotos": operated_urls,         # JSONB column
-                "earthingPointsPhotos": earthing_urls,      # JSONB column
+                "cssName": cssName.strip(), 
+                "operatedLbsPhotos": operated_urls,         
+                "earthingPointsPhotos": earthing_urls,     
             }
-
+            
             resp = supabase.table(TABLE_NAME).insert(row).execute()
             st.success("✅ Submitted successfully!")
             if resp.data:
