@@ -17,44 +17,27 @@ SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets["SUPABASE_ANON_
 st.set_page_config(page_title="LECO Permit to Work", page_icon="📝", layout="centered")
 
 BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
-OPACITY = 0.96
-
 
 st.markdown(
-    f
-    <style>
-    /* Page background */
+    f"""<style>
     .stApp {{
         background: url('{BG_URL}') no-repeat center center fixed;
         background-size: cover;
     }}
-
-    /* Sidebar glass effect (optional) */
+    /* Make the sidebar semi-transparent over the bg */
     [data-testid="stSidebar"] > div:first-child {{
-        background: rgba(255,255,255,{OPACITY});
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(4px);
+        background: rgba(255,255,255,0.75);
+        backdrop-filter: blur(4px);
     }}
-
-    /* Main content glass card */
-    .glass-card {{
-        background: rgba(255,255,255,{OPACITY});
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+    /* Optional: center the page content and give it a glass card look */
+    .main-block {{
+        background: rgba(255,255,255,0.80);
         border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-        border: 1px solid rgba(255,255,255,0.6);
-        max-width: 900px;
-        margin: 24px auto; /* center the card */
-    }}
-
-    /* Make form labels a touch bolder for contrast */
-    .glass-card label p {{
-        font-weight: 600 !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }}
     </style>
-    ,
+    """,
     unsafe_allow_html=True,
 )
 
@@ -100,7 +83,7 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-
+st.markdown('<div class="main-block">', unsafe_allow_html=True)
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
@@ -127,7 +110,7 @@ with st.form("wp_form", clear_on_submit=False):
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel...", value=False)
     submitted = st.form_submit_button("Submit")
 
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
 
 if submitted:
     # Mandatory fields
@@ -168,5 +151,5 @@ if submitted:
 
 
 
-st.markdown('</div>', unsafe_allow_html=True)
+
 st.markdown("---")
