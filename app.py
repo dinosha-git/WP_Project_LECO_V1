@@ -63,8 +63,10 @@ st.title("📝 LECO Permit to Work")
 st.subheader("**01. Issuing Clearance**")
 #st.markdown("---")
 
+CSC_OPTIONS = ["Negombo", "Kelaniya", "Kotte", "Nugegoda", "Moratuwa", "Kaluthara", "Galle"]
+
 with st.form("wp_form", clear_on_submit=False):
-    csc = st.text_input("Customer Service Center", placeholder="Negombo")
+    csc = st.selectbox("Customer Service Center", CSC_OPTIONS, index=0)
     technicalOfficer = st.text_input("Technical Officer", placeholder="TO Name")
     workScope = st.text_input("Work Scope", placeholder="Mention the Work Scope")
     operatedLbs = st.text_area("Operating LBSs", placeholder="Mention the Operating LBSs")
