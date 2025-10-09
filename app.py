@@ -16,16 +16,7 @@ SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets["SUPABASE_ANON_
 
 st.set_page_config(page_title="LECO Permit to Work", page_icon="📝", layout="centered")
 
-@st.cache_resource
-def get_client() -> Client:
-    return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
-
-supabase = get_client()
-
-#BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
-BG_URL = "https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png"
-#https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
-
+BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
 OPACITY = 0.96
 
 
@@ -66,6 +57,13 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
+@st.cache_resource
+def get_client() -> Client:
+    return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+supabase = get_client()
+
 BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
