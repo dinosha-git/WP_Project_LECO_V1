@@ -22,11 +22,12 @@ def get_client() -> Client:
 
 supabase = get_client()
 
-BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
+BG_URL = "https://images.pexels.com/photos/18301274/pexels-photo-18301274.jpeg"
 
 #https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
 
 OPACITY = 0.96
+
 
 st.markdown(
     f"""
@@ -46,8 +47,7 @@ st.markdown(
 
     /* Main content glass card */
     .glass-card {{
-        background: linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
-#       background: rgba(255,255,255,{OPACITY});
+        background: rgba(255,255,255,{OPACITY});
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 16px;
