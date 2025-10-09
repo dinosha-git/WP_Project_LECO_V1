@@ -100,7 +100,6 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 
 st.title("📝 LECO Permit to Work")
 
@@ -128,7 +127,7 @@ with st.form("wp_form", clear_on_submit=False):
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel...", value=False)
     submitted = st.form_submit_button("Submit")
 
-
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 if submitted:
     # Mandatory fields
     missing = []
