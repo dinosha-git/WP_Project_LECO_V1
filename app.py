@@ -46,7 +46,8 @@ st.markdown(
 
     /* Main content glass card */
     .glass-card {{
-        background: rgba(255,255,255,{OPACITY});
+        background: linear-gradient(to bottom, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
+#       background: rgba(255,255,255,{OPACITY});
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-radius: 16px;
