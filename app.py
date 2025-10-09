@@ -130,8 +130,8 @@ if submitted:
 
             resp = supabase.table(TABLE_NAME).insert(row).execute()
             st.success("✅ Submitted successfully!")
-            if resp.data:
-                st.json(resp.data[0])
+#            if resp.data:
+#                st.json(resp.data[0])
         except Exception as e:
             st.error(f"❌ Error saving to database: {e}")
 
