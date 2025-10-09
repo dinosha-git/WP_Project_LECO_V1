@@ -16,25 +16,13 @@ SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY") or st.secrets["SUPABASE_ANON_
 
 st.set_page_config(page_title="LECO Permit to Work", page_icon="📝", layout="centered")
 
-BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
+BG_URL = "https://images.pexels.com/photos/6803793/pexels-photo-6803793.jpeg"
 
 st.markdown(
     f"""<style>
     .stApp {{
         background: url('{BG_URL}') no-repeat center center fixed;
         background-size: cover;
-    }}
-    /* Make the sidebar semi-transparent over the bg */
-    [data-testid="stSidebar"] > div:first-child {{
-        background: rgba(255,255,255,0.75);
-        backdrop-filter: blur(4px);
-    }}
-    /* Optional: center the page content and give it a glass card look */
-    .main-block {{
-        background: rgba(255,255,255,1);
-        border-radius: 100px;
-        padding: 50px;
-        box-shadow: 0 50px 80px rgba(0,0,0,1);
     }}
     </style>
     """,
