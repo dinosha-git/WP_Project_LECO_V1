@@ -23,7 +23,7 @@ def get_client() -> Client:
 supabase = get_client()
 
 # === Background image via URL ===
-BG_URL = "https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1920"  # <- replace with your image URL
+BG_URL = "https://th.bing.com/th/id/R.410adbf0b3e23594f0e995e5f0e5fe4e?rik=J8enojlBmetOVg&riu=http%3a%2f%2f203.94.76.83%2fimages%2flecologomain.png&ehk=PWRsot90gLq5tzlwm%2foRn14LGZRmkFK27AZm9Zh9LVw%3d&risl=&pid=ImgRaw&r=0"  # <- replace with your image URL
 
 st.markdown(
     f"""
@@ -85,8 +85,6 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-
-st.markdown('<div class="main-block">', unsafe_allow_html=True)
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
