@@ -21,7 +21,7 @@ OPACITY = 0.96
 
 
 st.markdown(
-    f"""
+    f
     <style>
     /* Page background */
     .stApp {{
@@ -38,8 +38,9 @@ st.markdown(
 
     /* Main content glass card */
     .glass-card {{
-        background: #1f2937;
-        color: #f3f4f6;  
+        background: rgba(255,255,255,{OPACITY});
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         border-radius: 16px;
         padding: 24px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.18);
@@ -53,7 +54,7 @@ st.markdown(
         font-weight: 600 !important;
     }}
     </style>
-    """,
+    ,
     unsafe_allow_html=True,
 )
 
@@ -126,6 +127,7 @@ with st.form("wp_form", clear_on_submit=False):
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel...", value=False)
     submitted = st.form_submit_button("Submit")
 
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
 
 if submitted:
     # Mandatory fields
@@ -166,4 +168,5 @@ if submitted:
 
 
 
+st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("---")
