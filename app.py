@@ -69,17 +69,6 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
-with st.sidebar:
-    st.write("Supabase URL:", SUPABASE_URL)
-    st.write("Table name:", TABLE_NAME)
-    # Can I SELECT from this table right now?
-    try:
-        ping = supabase.table(TABLE_NAME).select("id").limit(1).execute()
-        st.success("SELECT ok on this table")
-    except Exception as e:
-        st.error(f"SELECT failed: {e}")
-
-
 #st.set_page_config(page_title="Simple Form", page_icon="📝", layout="centered")
 st.title("📝 LECO Permit to Work")
 
