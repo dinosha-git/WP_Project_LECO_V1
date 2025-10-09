@@ -32,7 +32,7 @@ st.markdown(
     /* Optional: center the page content and give it a glass card look */
     .main-block {{
         background: rgba(255,255,255,1);
-        border-radius: 16px;
+        border-radius: 100px;
         padding: 50px;
         box-shadow: 0 50px 80px rgba(0,0,0,1);
     }}
