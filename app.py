@@ -102,6 +102,8 @@ def upload_files(files, subfolder):
 
 TABLE_NAME = "wp_tbl"
 
+st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+
 st.title("📝 LECO Permit to Work")
 
 st.subheader("**01. Issuing Clearance**")
@@ -166,7 +168,7 @@ if submitted:
         except Exception as e:
             st.error(f"❌ Error saving to database: {e}")
 
-st.markdown('<div class="glass-card">', unsafe_allow_html=True)
+
 
 st.markdown('</div>', unsafe_allow_html=True)
 st.markdown("---")
