@@ -23,7 +23,7 @@ def get_client() -> Client:
 supabase = get_client()
 
 # === Background image via URL ===
-BG_URL = "https://www.pexels.com/photo/electricians-working-with-power-lines-17018102/"  # <- replace with your image URL
+BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"  # <- replace with your image URL
 
 st.markdown(
     f"""
