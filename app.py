@@ -60,7 +60,7 @@ TABLE_NAME = "wp_tbl"
 
 st.title("📝 LECO Permit to Work")
 
-st.markdown("**01. Issuing Clearance**")
+st.header("**01. Issuing Clearance**")
 #st.markdown("---")
 
 with st.form("wp_form", clear_on_submit=False):
