@@ -24,30 +24,47 @@ supabase = get_client()
 
 BG_URL = "https://images.pexels.com/photos/17018103/pexels-photo-17018103.jpeg"
 
+#https://www.adb.org/sites/default/files/styles/cover_top/public/cover-story-lanka-electricity-company.png?itok=s12CiAF7
+
+OPACITY = 0.88
+
 st.markdown(
     f"""
     <style>
+    /* Page background */
     .stApp {{
         background: url('{BG_URL}') no-repeat center center fixed;
         background-size: cover;
     }}
-    /* Make the sidebar semi-transparent over the bg */
+
+    /* Sidebar glass effect (optional) */
     [data-testid="stSidebar"] > div:first-child {{
-        background: rgba(255,255,255,0.75);
+        background: rgba(255,255,255,{OPACITY});
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
     }}
-#    /* Optional: center the page content and give it a glass card look */
-#    .main-block {{
-#        background: rgba(255,255,255,0.80);
-#        border-radius: 16px;
-#        padding: 24px;
-#        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    /* Main content glass card */
+    .glass-card {{
+        background: rgba(255,255,255,{OPACITY});
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        border: 1px solid rgba(255,255,255,0.6);
+        max-width: 900px;
+        margin: 24px auto; /* center the card */
+    }}
+
+    /* Make form labels a touch bolder for contrast */
+    .glass-card label p {{
+        font-weight: 600 !important;
     }}
     </style>
     """,
     unsafe_allow_html=True,
 )
-
 BUCKET = "wp_bucket"
 
 def upload_files(files, subfolder):
