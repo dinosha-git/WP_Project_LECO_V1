@@ -95,8 +95,14 @@ with st.form("wp_form", clear_on_submit=False):
     additionalEarthing = st.number_input("Number of Additional Earthing", min_value=0, max_value=120, step=1)
     cssName = st.text_input("Name of the Initiator", placeholder="Mention the CSS Name")
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel and released this Permit to Work with the awareness of the Distribution Control Center...", value=False)
-    submitted = st.form_submit_button("Submit")
+    
+st.subheader("**02. Permission to Work**")
 
+with st.form("wp_form", clear_on_submit=False):
+    
+
+
+    submitted = st.form_submit_button("Submit")
 
 if submitted:
     # Mandatory fields
