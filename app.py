@@ -74,11 +74,13 @@ TABLE_NAME = "wp_tbl"
 
 st.title("📝 LECO Permit to Work")
 
-st.subheader("**01. Issuing Clearance**")
+#st.subheader("**01. Issuing Clearance**")
 
 CSC_OPTIONS = ["Negombo", "Kelaniya", "Kotte", "Nugegoda", "Moratuwa", "Kaluthara", "Galle"]
 
 with st.form("wp_form", clear_on_submit=False):
+
+    st.subheader("02. Issuing Clearance")
     csc = st.selectbox("Customer Service Center", CSC_OPTIONS, index=0)
     technicalOfficer = st.text_input("Technical Officer", placeholder="TO Name")
     workScope = st.text_input("Work Scope", placeholder="Mention the Work Scope")
@@ -95,15 +97,12 @@ with st.form("wp_form", clear_on_submit=False):
     additionalEarthing = st.number_input("Number of Additional Earthing", min_value=0, max_value=120, step=1)
     cssName = st.text_input("Name of the Initiator", placeholder="Mention the CSS Name")
     safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel and released this Permit to Work with the awareness of the Distribution Control Center...", value=False)
+    
+    st.subheader("02. Permission to Work")
     submitted = st.form_submit_button("Submit")
     
-st.subheader("**02. Permission to Work**")
+# st.subheader("**02. Permission to Work**")
 
-with st.form("wp_form", clear_on_submit=False):
-   
-
-
-    submitted = st.form_submit_button("Submit")
 
 if submitted:
     # Mandatory fields
