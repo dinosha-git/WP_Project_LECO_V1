@@ -96,9 +96,12 @@ with st.form("wp_form", clear_on_submit=False):
     wpTransfer = st.checkbox("Can transfer this Permit to Work to another authorized person ", value=False)
     additionalEarthing = st.number_input("Number of Additional Earthing", min_value=0, max_value=120, step=1)
     cssName = st.text_input("Name of the Initiator", placeholder="Mention the CSS Name")
-    safetyConfirmation = st.checkbox("I hereby declare the isolated section is completely safe to access and carry out the operations by the relevant personnel and released this Permit to Work with the awareness of the Distribution Control Center...", value=False)
+    safetyConfirmation = st.checkbox("I hereby confirm the isolated section is completely safe to access and carry out the operations by the relevant personnel and released this Permit to Work with the awareness of the Distribution Control Center...", value=False)
     
     st.subheader("02. Permission to Work")
+
+    safetyConfirmation1 = st.checkbox("I will take the responsibility of working on the equiupment mentioned under this Permit to Work (HV/LV lines, equipment and tools) and I confirm non of the team that is working under my supervision will not access the unmentioned equipment under this Permit to Work and I will collect a key of the lockout box which is used for the isolation...", value=False)
+
     submitted = st.form_submit_button("Submit")
     
 # st.subheader("**02. Permission to Work**")
@@ -131,7 +134,8 @@ if submitted:
                 "cssName": cssName.strip(), 
                 "operatedLbsPhotos": operated_urls,         
                 "earthingPointsPhotos": earthing_urls,
-                "safetyConfirmation" : bool(safetyConfirmation),     
+                "safetyConfirmation" : bool(safetyConfirmation),   
+                "safetyConfirmation1" : bool(safetyConfirmation1),  
             }
 
             resp = supabase.table(TABLE_NAME).insert(row).execute()
